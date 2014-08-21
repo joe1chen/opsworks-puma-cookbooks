@@ -1,3 +1,6 @@
 [submodule "java"]
 	path = java
 	url = https://github.com/agileorbit-cookbooks/java.git
+[submodule "opsworks-puma"]
+	path = opsworks-puma
+	url = https://github.com/sportngin-cookbooks/opsworks-puma.git
