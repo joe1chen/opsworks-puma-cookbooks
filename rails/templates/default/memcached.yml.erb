@@ -7,6 +7,6 @@
   instances = {:localhost => {:private_ip => "127.0.0.1"}} if instances.empty?
   -%>
   <% instances.each_pair do |name, cache_server| -%>
-    - "<%= cache_server[:private_ip]%>:<%= @memcached[:port] %>"
+    - <%= cache_server[:private_ip]%>:<%= @memcached[:port] %>
   <% end -%>
 <% end -%>
