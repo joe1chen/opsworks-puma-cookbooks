@@ -1,0 +1,12 @@
+# See https://gist.github.com/thomasritz/6388112
+<% (['development', 'production'] + [@environment]).uniq.flatten.each do |env| -%>
+<%= env %>:
+  hosts:
+  <%
+  instances = node[:opsworks][:layers][:memcached][:instances]
+  instances = {:localhost => {:private_ip => "127.0.0.1"}} if instances.empty?
+  -%>
+  <% instances.each_pair do |name, cache_server| -%>
+    - "<%= cache_server[:private_ip]%>:<%= @memcached[:port] %>"
+  <% end -%>
+<% end -%>
